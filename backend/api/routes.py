@@ -1,13 +1,15 @@
 from fastapi import APIRouter
-from core.logger import logger
+from services.llm_service import generate_response
 
 router = APIRouter()
 
+
 @router.get("/health")
 def health_check():
-    logger.info("Health check called")
     return {"status": "ok"}
 
-@router.get("/")
-def root():
-    return {"message": "AI Lead Agent API is running"}
+
+@router.post("/chat")
+def chat(prompt: str):
+    response = generate_response(prompt)
+    return {"response": response}
