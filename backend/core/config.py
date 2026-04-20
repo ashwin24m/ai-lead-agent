@@ -1,14 +1,14 @@
-from pydantic_settings import BaseSettings
+from pydantic_settings import BaseSettings, SettingsConfigDict
 
 class Settings(BaseSettings):
     APP_NAME: str = "AI Lead Agent"
     DEBUG: bool = True
     API_PREFIX: str = "/api"
 
-    # add later
     OPENAI_API_KEY: str | None = None
 
-    class Config:
-        env_file = ".env"
+    model_config = SettingsConfigDict(
+        env_file="backend/.env"   
+    )
 
 settings = Settings()

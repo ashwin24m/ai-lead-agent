@@ -1,7 +1,7 @@
 import time
 from openai import OpenAI
-from core.config import settings
-from core.logger import logger
+from backend.core.config import settings
+from backend.core.logger import logger
 
 client = OpenAI(api_key=settings.OPENAI_API_KEY)
 

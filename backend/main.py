@@ -1,7 +1,7 @@
 from fastapi import FastAPI
-from core.config import settings
-from api.routes import router
-from core.logger import logger
+from backend.core.config import settings
+from backend.api.routes import router
+from backend.core.logger import logger
 
 app = FastAPI(
     title=settings.APP_NAME,
